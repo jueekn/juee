@@ -1,0 +1,136 @@
+/* ============================================================
+   Juee Naik — shared styles
+============================================================ */
+:root{
+  --bg:      #0a0f11;
+  --text:    #e9f1f0;
+  --muted:   #8ba09f;
+  --faint:   #5b716f;
+  --line:    #1a2528;
+  --turq:    #40e0d0;
+
+  --display: "Space Grotesk", system-ui, sans-serif;
+  --body:    "Inter", system-ui, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  --maxw: 760px;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+
+.wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+
+/* ---------- nav ---------- */
+nav{ padding:34px 0 0; }
+.nav-inner{
+  max-width:var(--maxw); margin:0 auto; padding:0 28px;
+  display:flex; align-items:baseline; justify-content:space-between;
+}
+.brand{ font-family:var(--display); font-weight:600; font-size:1rem; letter-spacing:-.01em; }
+.nav-links{ display:flex; gap:24px; }
+.nav-links a{ font-size:.92rem; color:var(--muted); transition:color .2s; }
+.nav-links a:hover{ color:var(--text); }
+.nav-links a.active{ color:var(--turq); }
+
+/* ---------- page shell ---------- */
+main{ flex:1; padding:64px 0 80px; }
+.page-title{
+  font-family:var(--display); font-weight:600;
+  font-size:clamp(1.5rem,4vw,2rem); letter-spacing:-.01em;
+  margin-bottom:44px;
+}
+
+/* ---------- home ---------- */
+.intro{
+  display:grid; grid-template-columns:1fr 220px; gap:48px;
+  align-items:start; padding-top:40px;
+}
+.intro h1{
+  font-family:var(--display); font-weight:600;
+  font-size:clamp(2.2rem,6vw,3.2rem); line-height:1.02;
+  letter-spacing:-.02em; margin-bottom:22px;
+}
+.intro h1 span{ color:var(--turq); }
+.intro p{ color:var(--muted); font-size:1.05rem; max-width:44ch; }
+.intro p + p{ margin-top:16px; }
+
+.portrait{
+  border:1px solid var(--line); border-radius:3px;
+  aspect-ratio:4/5; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  background:#0e1518;
+}
+.portrait img{ width:100%; height:100%; object-fit:cover; }
+.portrait .ph{ color:var(--faint); font-size:.82rem; text-align:center; padding:16px; }
+.portrait .ph svg{ margin:0 auto 10px; opacity:.5; }
+
+.contact{ margin-top:56px; display:flex; flex-wrap:wrap; gap:22px; }
+.contact a{
+  color:var(--muted); font-size:.95rem;
+  border-bottom:1px solid transparent; transition:all .2s;
+}
+.contact a:hover{ color:var(--turq); border-color:var(--turq); }
+
+/* ---------- signal trace (the one signature) ---------- */
+.signal{ height:64px; overflow:hidden; margin-top:70px; }
+.signal svg{ width:200%; height:100%; }
+.signal path{ fill:none; stroke:var(--turq); stroke-width:1.2; opacity:.85; }
+.scroll-trace{ animation:trace 16s linear infinite; }
+@keyframes trace{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+
+/* ---------- research entries ---------- */
+.entry{
+  display:grid; grid-template-columns:1fr 168px; gap:40px;
+  padding:34px 0; border-top:1px solid var(--line);
+}
+.entry:last-child{ border-bottom:1px solid var(--line); }
+.entry .role{ font-family:var(--display); font-weight:600; font-size:1.15rem; }
+.entry .org{ color:var(--muted); font-size:.92rem; margin:3px 0 2px; }
+.entry .org b{ color:var(--text); font-weight:500; }
+.entry .date{ color:var(--faint); font-size:.82rem; margin-bottom:14px; }
+.entry .desc{ color:var(--muted); font-size:.98rem; }
+.entry .note{ color:var(--faint); font-size:.82rem; margin-top:12px; }
+
+.tools{ display:flex; flex-direction:column; gap:7px; padding-top:4px; }
+.tools .lbl{ font-family:var(--mono); font-size:.66rem; letter-spacing:.14em; color:var(--faint); text-transform:uppercase; margin-bottom:2px; }
+.tools span{ font-family:var(--mono); font-size:.78rem; color:var(--turq); }
+
+/* ---------- projects ---------- */
+.proj{ padding:34px 0; border-top:1px solid var(--line); }
+.proj:last-child{ border-bottom:1px solid var(--line); }
+.proj h2{ font-family:var(--display); font-weight:600; font-size:1.2rem; }
+.proj .date{ color:var(--faint); font-size:.82rem; margin:4px 0 14px; }
+.proj p{ color:var(--muted); font-size:.98rem; max-width:60ch; }
+.proj .tools{ flex-direction:row; flex-wrap:wrap; gap:14px; margin-top:16px; }
+
+/* ---------- footer ---------- */
+footer{ padding:28px 0; }
+footer .wrap{ color:var(--faint); font-size:.8rem; }
+
+/* ---------- responsive ---------- */
+@media (max-width:620px){
+  .intro{ grid-template-columns:1fr; gap:32px; }
+  .portrait{ max-width:220px; }
+  .entry{ grid-template-columns:1fr; gap:16px; }
+  .tools{ flex-direction:row; flex-wrap:wrap; gap:14px; }
+  .nav-links{ gap:18px; }
+}
+@media (prefers-reduced-motion:reduce){
+  .scroll-trace{ animation:none; }
+  html{ scroll-behavior:auto; }
+}
+:focus-visible{ outline:2px solid var(--turq); outline-offset:3px; }

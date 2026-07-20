@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Juee Naik — Projects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;450;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="index.html">Juee Naik</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="projects.html" class="active">Projects</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <h1 class="page-title">Projects</h1>
+
+    <div class="proj">
+      <h2>Decoding finger movement from the brain's surface</h2>
+      <div class="date">Spring 2025</div>
+      <p>
+        Predicting continuous finger flexion from electrical activity
+        recorded on the cortex, across three subjects. I engineered spectral
+        and motor-related features over lagged time windows, then stacked
+        per-finger gradient-boosted models under a single meta-learner with
+        adaptive smoothing — reaching strong correlation on held-out data.
+      </p>
+      <div class="tools">
+        <span>ECoG</span><span>XGBoost + RidgeCV</span><span>Spectral features</span>
+      </div>
+    </div>
+
+    <div class="proj">
+      <h2>Turning live brain activity into music</h2>
+      <div class="date">Spring 2026 · Signal Processing Lead</div>
+      <p>
+        A real-time system that reads focus and arousal from scalp EEG and
+        uses them to steer an adaptive music playlist. I led the signal side:
+        robust live feature extraction, plus a link to a haptic wristband that
+        nudges the listener with vibration — closing the neurofeedback loop.
+      </p>
+      <div class="tools">
+        <span>Real-time EEG</span><span>Artifact rejection</span><span>Neurofeedback</span>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer><div class="wrap">© 2026 Juee Naik</div></footer>
+
+</body>
+</html>
