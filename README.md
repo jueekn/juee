@@ -1,2 +1,0 @@
-# juee
-Personal Website
